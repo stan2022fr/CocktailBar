@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.MainActivity">
+    tools:context=".presentation.CocktailListFragment">
 
     <ImageView
         android:id="@+id/intro_image"
@@ -32,7 +32,7 @@
         android:layout_marginTop="32dp"
         android:gravity="center_horizontal|top"
         android:text="@string/create_cock_hint"
-        android:textColor="@color/intro_hint_color"
+        android:textColor="@color/hint_color"
         android:textSize="21sp" />
 
     <ImageView
@@ -46,7 +46,7 @@
         android:src="@drawable/arrow" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddTask"
+        android:id="@+id/fabAddCocktail"
         style="@style/FloatingActionButton.Rounded"
         android:layout_width="80dp"
         android:layout_height="80dp"

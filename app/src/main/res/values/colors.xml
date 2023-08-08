@@ -5,5 +5,7 @@
     <color name="red">#FF0000</color>
     <color name="button_color">#4B97FF</color>
     <color name="default_text_color">#313131</color>
-    <color name="intro_hint_color">#79747E</color>
+    <color name="hint_color">#79747E</color>
+    <color name="back_primary">#F7F6F2</color>
+    <color name="back_secondary">#FFFFFF</color>
 </resources>

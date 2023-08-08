@@ -8,14 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.happydroid.cocktailbar.R
 import com.happydroid.cocktailbar.data.CocktailRepository
 
-class CocktailListFragment : Fragment() {
+class AddCocktailFragment : Fragment() {
 
     companion object {
-        fun newInstance() = CocktailListFragment()
+        fun newInstance() = AddCocktailFragment()
     }
 
 
@@ -37,22 +36,12 @@ class CocktailListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_cocktail_list, container, false)
+        return inflater.inflate(R.layout.fragment_add_cocktail, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        val fabAddTask = view.findViewById<FloatingActionButton>(R.id.fabAddCocktail)
-        fabAddTask.setOnClickListener {
-            val addCocktailFragment = AddCocktailFragment.newInstance()
-            val fragmentManager = requireActivity().supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fragment_container, addCocktailFragment)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
-        }
     }
 
 }

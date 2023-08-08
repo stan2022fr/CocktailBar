@@ -2,4 +2,13 @@
     <string name="app_name">Cocktail Bar</string>
     <string name="app_title">My Cocktails</string>
     <string name="create_cock_hint">Add your first cocktail here</string>
+    <string name="hint_cocktail_name">Title</string>
+    <string name="description_hint">Description</string>
+    <string name="supporting_title">Add title</string>
+    <string name="supporting_description">Optional field</string>
+    <string name="recipe_hint">Recipe</string>
+    <string name="supporting_recipe">Optional field</string>
+    <string name="ingredient_hint">Ingredient</string>
+    <string name="save_button">Save</string>
+    <string name="cancel_button">Cancel</string>
 </resources>
