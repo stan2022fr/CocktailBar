@@ -1,12 +1,15 @@
 package com.happydroid.cocktailbar.presentation
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.happydroid.cocktailbar.R
+import com.happydroid.cocktailbar.data.CocktailRepository
 
 class CocktailListFragment : Fragment() {
 
@@ -14,7 +17,20 @@ class CocktailListFragment : Fragment() {
         fun newInstance() = CocktailListFragment()
     }
 
-    private lateinit var viewModel: CocktailViewModel
+
+    private val cocktailViewModel: CocktailViewModel by viewModels {
+        object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                val repository = CocktailRepository.getInstance(requireActivity().application)
+                if (modelClass.isAssignableFrom(CocktailViewModel::class.java)) {
+                    return CocktailViewModel(repository) as T
+                }
+                throw IllegalArgumentException("Unknown ViewModel class")
+            }
+        }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +41,6 @@ class CocktailListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CocktailViewModel::class.java)
 
     }
 
