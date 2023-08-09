@@ -28,13 +28,14 @@
 ## Скриншоты:
 <details>
   <summary>Нажмите, чтобы развернуть спойлер</summary>
-    ![start](https://github.com/stan2022fr/CocktailBar/assets/47675467/6ff14ab2-9131-4712-adcf-dde8638e6043)
-    ![1add](https://github.com/stan2022fr/CocktailBar/assets/47675467/f7e39d13-7e19-4357-9fd2-c58a08ec7642)
-    ![2add](https://github.com/stan2022fr/CocktailBar/assets/47675467/37dbb45b-aa3b-4503-b82f-b9d7f1462887)
-    ![3add](https://github.com/stan2022fr/CocktailBar/assets/47675467/318d79b6-2e83-4d71-807f-71e6ac98e2ff)
-    ![4add](https://github.com/stan2022fr/CocktailBar/assets/47675467/11b0aada-fcb0-4ad8-8f5a-0135831b0bd5)
-    ![5detail](https://github.com/stan2022fr/CocktailBar/assets/47675467/d08b57fa-cced-4184-b132-7f37c74a9c00)
-    ![6delete](https://github.com/stan2022fr/CocktailBar/assets/47675467/8fd04101-37c9-454d-b26e-fce6d5808e62)
- 
+  
+    ![start](https://github-production-user-asset-6210df.s3.amazonaws.com/47675467/259348628-6ff14ab2-9131-4712-adcf-dde8638e6043.png)
+    ![1add](https://github-production-user-asset-6210df.s3.amazonaws.com/47675467/259348892-f7e39d13-7e19-4357-9fd2-c58a08ec7642.png)
+    ![2add](https://github-production-user-asset-6210df.s3.amazonaws.com/47675467/259348959-37dbb45b-aa3b-4503-b82f-b9d7f1462887.png)
+    ![3add](https://github-production-user-asset-6210df.s3.amazonaws.com/47675467/259349009-318d79b6-2e83-4d71-807f-71e6ac98e2ff.png)
+    ![4add](https://github-production-user-asset-6210df.s3.amazonaws.com/47675467/259349030-11b0aada-fcb0-4ad8-8f5a-0135831b0bd5.png)
+    ![5detail](https://github-production-user-asset-6210df.s3.amazonaws.com/47675467/259349058-d08b57fa-cced-4184-b132-7f37c74a9c00.png)
+    ![6delete](https://github-production-user-asset-6210df.s3.amazonaws.com/47675467/259349078-8fd04101-37c9-454d-b26e-fce6d5808e62.png)
   
 </details>
+
