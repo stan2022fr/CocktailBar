@@ -58,6 +58,12 @@ class CocktailListFragment : Fragment() {
             val addCocktailFragment = AddCocktailFragment.newInstance()
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out,
+            )
             fragmentTransaction.replace(R.id.fragment_container, addCocktailFragment)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
@@ -107,6 +113,12 @@ class CocktailListFragment : Fragment() {
         detailsCocktailFragment.arguments = bundle
 
         fragmentManager.beginTransaction().apply {
+            setCustomAnimations(
+                R.anim.slide_in,
+                R.anim.fade_out,
+                R.anim.fade_in,
+                R.anim.slide_out,
+            )
             replace(R.id.fragment_container, detailsCocktailFragment)
             addToBackStack(null)
             commit()
