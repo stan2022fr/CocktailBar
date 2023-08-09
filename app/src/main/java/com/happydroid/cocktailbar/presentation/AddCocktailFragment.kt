@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -47,6 +48,20 @@ class AddCocktailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val image: ImageView = view.findViewById(R.id.cocktail_image)
+        val drawableResources = listOf(
+            R.drawable.cocktail1,
+            R.drawable.cocktail2,
+            R.drawable.cocktail3,
+            R.drawable.cocktail4,
+            R.drawable.cocktail5,
+            R.drawable.cocktail6
+        )
+        val randomIndex = (0..2).random()
+        val idImage = drawableResources[randomIndex]
+        image.setImageResource(idImage)
+        image.setTag(R.id.image_view_tag, idImage)
 
         val cocktailNameEditText: EditText = view.findViewById(R.id.cocktail_name_edit)
         val supportingCocktailName: TextView = view.findViewById(R.id.supporting_cocktail_name_tv)
@@ -95,14 +110,14 @@ class AddCocktailFragment : Fragment() {
         val cocktailName: EditText = requireView().findViewById(R.id.cocktail_name_edit)
         val cocktailDescription: EditText = requireView().findViewById(R.id.description_edit)
         val cocktailRecipe: EditText = requireView().findViewById(R.id.recipe_edit)
-        val cocktailImage_filename = "cocktail1.png"
+        val cocktailImage: ImageView = requireView().findViewById(R.id.cocktail_image)
         val cocktailItem = CocktailItem(
             id = 0,
             name = cocktailName.text.toString(),
             description = cocktailDescription.text.toString(),
             recipe = cocktailRecipe.text.toString(),
             ingredients = listOf(""),
-            imageFileName = cocktailImage_filename
+            imageFileName = cocktailImage.getTag(R.id.image_view_tag).toString()
         )
         cocktailViewModel.insertCocktail(cocktailItem)
     }

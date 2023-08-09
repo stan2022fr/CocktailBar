@@ -8,7 +8,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class CocktailViewModel(private val cocktailRepository: CocktailRepository) : ViewModel() {
-    val allCocktails: LiveData<List<CocktailItem>> = cocktailRepository.allCocktails
+    val cocktails: LiveData<List<CocktailItem>> = cocktailRepository.getAllCocktails()
 
     fun insertCocktail(cocktail: CocktailItem) = GlobalScope.launch {
         cocktailRepository.insertCocktail(cocktail)

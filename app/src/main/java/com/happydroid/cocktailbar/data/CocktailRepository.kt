@@ -8,8 +8,12 @@ import com.happydroid.cocktailbar.data.model.CocktailItem
 
 class CocktailRepository private constructor(application: Application) {
     private val cocktailDao: CocktailDao = LocalStorage.getDatabase(application).cocktailItems()
-    val allCocktails: LiveData<List<CocktailItem>> = cocktailDao.getAllCocktails()
 
+
+    fun getAllCocktails(): LiveData<List<CocktailItem>> {
+        return cocktailDao.getAllCocktails()
+
+    }
     suspend fun insertCocktail(cocktail: CocktailItem) {
         cocktailDao.insertCocktail(cocktail)
     }
