@@ -13,4 +13,7 @@
     <string name="cancel_button">Cancel</string>
     <string name="delete_button">Delete</string>
     <string name="edit_button">Edit</string>
+    <string name="add_chip_button">Add</string>
+    <string name="recipe_title_detail">Recipe:</string>
+    <string name="message_no_ingredients">There must be at least one ingredient!</string>
 </resources>

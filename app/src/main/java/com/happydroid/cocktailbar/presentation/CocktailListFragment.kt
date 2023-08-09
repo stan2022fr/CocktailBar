@@ -86,6 +86,9 @@ class CocktailListFragment : Fragment() {
                 arrowImage.visibility = View.VISIBLE
                 introText.visibility = View.VISIBLE
                 cocktailRecyclerView.visibility = View.GONE
+                val layoutParams = frameLayout.layoutParams
+                layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+                frameLayout.layoutParams = layoutParams
             } else {
                 titleText.setTextAppearance(R.style.app_title)
                 introImage.visibility = View.GONE

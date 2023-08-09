@@ -13,6 +13,6 @@ data class CocktailItem(
     val name: String,
     val description: String?,
     val recipe: String?,
-    val ingredients: List<String>?,
+    val ingredients: List<String>,
     val imageFileName: String
 )

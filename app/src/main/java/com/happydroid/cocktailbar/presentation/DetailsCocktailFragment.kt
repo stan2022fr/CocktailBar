@@ -70,10 +70,14 @@ class DetailsCocktailFragment : Fragment() {
         val cocktailName: TextView = requireView().findViewById(R.id.cocktail_name_tv)
         val description: TextView = requireView().findViewById(R.id.description_tv)
         val recipe: TextView = requireView().findViewById(R.id.recipe_tv)
+        val recipeTitle: TextView = requireView().findViewById(R.id.recipe_title_tv)
+        val ingredient: TextView = requireView().findViewById(R.id.ingredient_tv)
 
         if (cocktailItem != null) {
             image.setImageResource(cocktailItem.imageFileName.toIntOrNull() ?: 0)
             cocktailName.text = cocktailItem.name
+
+            ingredient.text = cocktailItem.ingredients?.joinToString("\n ---- \n")
 
             if (!cocktailItem.description.isNullOrEmpty()) {
                 description.text = cocktailItem.description
@@ -85,8 +89,10 @@ class DetailsCocktailFragment : Fragment() {
             if (!cocktailItem.recipe.isNullOrEmpty()) {
                 recipe.text = cocktailItem.recipe
                 recipe.visibility = View.VISIBLE
+                recipeTitle.visibility = View.VISIBLE
             } else {
                 recipe.visibility = View.GONE
+                recipeTitle.visibility = View.GONE
             }
         }
 
