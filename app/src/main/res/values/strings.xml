@@ -11,4 +11,6 @@
     <string name="ingredient_hint">Ingredient</string>
     <string name="save_button">Save</string>
     <string name="cancel_button">Cancel</string>
+    <string name="delete_button">Delete</string>
+    <string name="edit_button">Edit</string>
 </resources>

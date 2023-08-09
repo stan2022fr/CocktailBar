@@ -14,4 +14,11 @@ class CocktailViewModel(private val cocktailRepository: CocktailRepository) : Vi
         cocktailRepository.insertCocktail(cocktail)
     }
 
+    fun getCocktailItemById(id: Int): LiveData<CocktailItem> {
+        return cocktailRepository.getCocktailById(id)
+    }
+
+    fun deleteCocktail(id: Int) = GlobalScope.launch {
+        cocktailRepository.deleteCocktail(id)
+    }
 }

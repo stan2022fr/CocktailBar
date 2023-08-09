@@ -1,7 +1,6 @@
 package com.happydroid.cocktailbar.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -77,13 +76,11 @@ class CocktailListFragment : Fragment() {
 
         cocktailViewModel.cocktails.observe(viewLifecycleOwner) { cocktails ->
             if (cocktails.isEmpty()) {
-                Log.i("hhh", "DB is empty")
                 introImage.visibility = View.VISIBLE
                 arrowImage.visibility = View.VISIBLE
                 introText.visibility = View.VISIBLE
                 cocktailRecyclerView.visibility = View.GONE
             } else {
-                Log.i("hhh", "DB is not empty")
                 titleText.setTextAppearance(R.style.app_title)
                 introImage.visibility = View.GONE
                 arrowImage.visibility = View.GONE
@@ -94,6 +91,25 @@ class CocktailListFragment : Fragment() {
                 cocktailRecyclerView.visibility = View.VISIBLE
                 cocktailListAdapter.submitList(cocktails)
             }
+        }
+
+        cocktailListAdapter.itemClickListener = { itemId ->
+            openDetails(itemId)
+        }
+    }
+
+    private fun openDetails(itemId: Int) {
+        val detailsCocktailFragment = DetailsCocktailFragment.newInstance()
+        val fragmentManager = requireActivity().supportFragmentManager
+        // Создаем Bundle и добавляем данные
+        val bundle = Bundle()
+        bundle.putString("idItem", itemId.toString())
+        detailsCocktailFragment.arguments = bundle
+
+        fragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, detailsCocktailFragment)
+            addToBackStack(null)
+            commit()
         }
     }
 

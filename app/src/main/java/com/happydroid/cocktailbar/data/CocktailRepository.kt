@@ -12,10 +12,18 @@ class CocktailRepository private constructor(application: Application) {
 
     fun getAllCocktails(): LiveData<List<CocktailItem>> {
         return cocktailDao.getAllCocktails()
-
     }
+
     suspend fun insertCocktail(cocktail: CocktailItem) {
         cocktailDao.insertCocktail(cocktail)
+    }
+
+    fun getCocktailById(id: Int): LiveData<CocktailItem> {
+        return cocktailDao.getCocktailById(id)
+    }
+
+    suspend fun deleteCocktail(id: Int) {
+        cocktailDao.deleteCocktailById(id)
     }
 
     companion object {

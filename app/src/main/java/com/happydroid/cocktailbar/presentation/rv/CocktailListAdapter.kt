@@ -2,14 +2,17 @@ package com.happydroid.cocktailbar.presentation.rv
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import com.happydroid.cocktailbar.R
 import com.happydroid.cocktailbar.data.model.CocktailItem
-import androidx.recyclerview.widget.ListAdapter
 
 class CocktailListAdapter : ListAdapter<CocktailItem, CocktailViewHolder>(CocktailDiffCallback()) {
+
+    var itemClickListener: ((itemId: Int) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CocktailViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return  CocktailViewHolder(
+        return CocktailViewHolder(
             layoutInflater.inflate(
                 R.layout.list_item,
                 parent,
@@ -19,6 +22,10 @@ class CocktailListAdapter : ListAdapter<CocktailItem, CocktailViewHolder>(Cockta
     }
 
     override fun onBindViewHolder(holder: CocktailViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val item = getItem(position)
+        holder.bind(item)
+        holder.itemView.setOnClickListener {
+            itemClickListener?.invoke(item.id)
+        }
     }
 }
