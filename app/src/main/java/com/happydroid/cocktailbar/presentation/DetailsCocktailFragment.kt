@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
@@ -60,8 +61,16 @@ class DetailsCocktailFragment : Fragment() {
 
         val backButton: Button = view.findViewById(R.id.buttonDelete)
         backButton.setOnClickListener {
-            cocktailViewModel.deleteCocktail(idCocktail?.toIntOrNull() ?: 0)
-            requireActivity().supportFragmentManager.popBackStack()
+            val alertDialog = AlertDialog.Builder(requireContext())
+                .setMessage(getString(R.string.message_delete_dialog))
+                .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                    cocktailViewModel.deleteCocktail(idCocktail?.toIntOrNull() ?: 0)
+                    requireActivity().supportFragmentManager.popBackStack()
+                }
+                .setNegativeButton(getString(R.string.no), null)
+                .create()
+
+            alertDialog.show()
         }
     }
 
@@ -77,7 +86,7 @@ class DetailsCocktailFragment : Fragment() {
             image.setImageResource(cocktailItem.imageFileName.toIntOrNull() ?: 0)
             cocktailName.text = cocktailItem.name
 
-            ingredient.text = cocktailItem.ingredients?.joinToString("\n ---- \n")
+            ingredient.text = cocktailItem.ingredients.joinToString("\n ---- \n")
 
             if (!cocktailItem.description.isNullOrEmpty()) {
                 description.text = cocktailItem.description
